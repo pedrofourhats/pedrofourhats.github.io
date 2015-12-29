@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0VXE3cTZNNEp6S2R1a2h5eTVUbU0zRTZ2cVRVN3NBMCIsInNjb3BlcyI6eyJjbGllbnRzIjp7ImFjdGlvbnMiOlsicmVhZCJdfSwicnVsZXMiOnsiYWN0aW9ucyI6WyJyZWFkIl19fSwiaWF0IjoxNDUxMzUwODIwLCJqdGkiOiJiNWE4YTI3ZjA1ZjQyYjg3ODk0OGU5NDA4MzkwOTNjNiJ9.j6xZc0VbfXa_VIkBjbbhJgSX_ApEVm6CQA19o4i7ppY";
+	var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0VXE3cTZNNEp6S2R1a2h5eTVUbU0zRTZ2cVRVN3NBMCIsInNjb3BlcyI6eyJydWxlcyI6eyJhY3Rpb25zIjpbInJlYWQiXX0sInVzZXJzIjp7ImFjdGlvbnMiOlsicmVhZCJdfX0sImlhdCI6MTQ1MTM1NTIxNSwianRpIjoiZTdhYmQyNzFiNGE3MjY0OGJlNDNhMWQ1YzBjNmY3YTkifQ.UIS1SA57mf_FN85cmVMMjC4Lgh9sQq6UxCDLubsWOyg";
     var lock = new Auth0Lock(
       // All these properties are set in auth0-variables.js
       AUTH0_CLIENT_ID,
