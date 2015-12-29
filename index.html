@@ -1,1 +1,51 @@
-hello world
+<!-- Auth0 lock script -->
+<script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>
+
+<!-- Setting the right viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<p id="testDiv"></p>
+<script>
+var getAllRules = [
+	{
+	  "name": "rule_1",
+	  "id": "con_0000000000000001",
+	  "enabled": true,
+	  "script": "function (user, context, callback) {\n  // Applications:app1,app2,app3,app4; callback(null, user, context);\n}",
+	  "order": 1,
+	  "stage": "login_success"
+	},
+	{
+	  "name": "rule_1",
+	  "id": "con_0000000000000001",
+	  "enabled": true,
+	  "script": "function (user, context, callback) {\n  // Applications:app7,app8,app3,app9;callback(null, user, context);\n}",
+	  "order": 1,
+	  "stage": "login_success"
+	},
+	{
+	  "name": "rule_1",
+	  "id": "con_0000000000000001",
+	  "enabled": true,
+	  "script": "function (user, context, callback) {\n  // Applications:app10,app21,app31,app45;callback(null, user, context);\n}",
+	  "order": 1,
+	  "stage": "login_success"
+	}
+];
+
+getAllRules.forEach(function(rule) {
+	applications = rule.script.substring(rule.script.search("Applications") + 13, rule.script.search(";"));
+	var applications = applications.split(',');
+	applications.forEach(function(application) {
+		alert(application);
+	});
+});
+
+
+
+
+
+
+
+
+</script>
