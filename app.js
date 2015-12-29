@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0VXE3cTZNNEp6S2R1a2h5eTVUbU0zRTZ2cVRVN3NBMCIsInNjb3BlcyI6eyJydWxlcyI6eyJhY3Rpb25zIjpbInJlYWQiXX0sInVzZXJzIjp7ImFjdGlvbnMiOlsicmVhZCJdfX0sImlhdCI6MTQ1MTM1NTIxNSwianRpIjoiZTdhYmQyNzFiNGE3MjY0OGJlNDNhMWQ1YzBjNmY3YTkifQ.UIS1SA57mf_FN85cmVMMjC4Lgh9sQq6UxCDLubsWOyg";
+	var rulesToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0VXE3cTZNNEp6S2R1a2h5eTVUbU0zRTZ2cVRVN3NBMCIsInNjb3BlcyI6eyJydWxlcyI6eyJhY3Rpb25zIjpbInJlYWQiXX0sInVzZXJzIjp7ImFjdGlvbnMiOlsicmVhZCJdfX0sImlhdCI6MTQ1MTM1NTIxNSwianRpIjoiZTdhYmQyNzFiNGE3MjY0OGJlNDNhMWQ1YzBjNmY3YTkifQ.UIS1SA57mf_FN85cmVMMjC4Lgh9sQq6UxCDLubsWOyg";
     var lock = new Auth0Lock(
       // All these properties are set in auth0-variables.js
       AUTH0_CLIENT_ID,
@@ -24,7 +24,7 @@ $(document).ready(function() {
 			method: 'GET'
 		  }).then(function(data, textStatus, jqXHR) {
 			writeRules(data);
-		  }, function() {
+		  }, function(error) {
 			alert("You need to download the server seed and start it to call this API");
 		  });
         }
@@ -35,7 +35,7 @@ $(document).ready(function() {
       'beforeSend': function(xhr) {
         if (localStorage.getItem('userToken')) {
           xhr.setRequestHeader('Authorization',
-                'Bearer ' + token);
+                'Bearer ' + rulesToken);
         }
       }
     });
@@ -47,10 +47,10 @@ $(document).ready(function() {
   	    var dataContent = document.getElementById('dataContent');
 		dataContent.innerHTML = dataContent.innerHTML + "<h4>Rule name: " + rule.name + "<h4><br>";
 		applications.forEach(function(application) {
-			dataContent.innerHTML = dataContent.innerHTML + "<p>" + application + "</p><br>"
+			dataContent.innerHTML = dataContent.innerHTML + "<p>" + application + "</p>"
 		});
 		});
-};
+	};
 
 
 
