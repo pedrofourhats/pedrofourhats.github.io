@@ -1,10 +1,25 @@
-# Auth0 + jQuery + API Seed
+# Auth0 Rules Application
 
-This is the seed project you need to use if you're going to create an app that will use Auth0, jQuery and an API that you're going to be developing. That API can be in any language.
+This application gathers all your rules through an API call (see https://auth0.com/docs/api/v2) and identifies which rule is validated in which application. 
+For this to work you will have to add at the very top of each of your rules script a line like this: "//Applications:appname1,appname2,appname3;" where appname1, appname2 and appname3 are the names of the applications which that rule applies. Your rule code should look something like this:
+'''''
+function (user, context, callback) {
+  //Applications:app1,app2,app3,app4;
 
-To see the example working, just go to http://auth0.github.io/auth0-jquery/examples/widget-with-api/
+  if (context.clientName === 'TheAppToCheckAccessTo') {
+    var d = new Date().getDay();
 
-If you want to connect to a third party API like Firebase or Amazon, please check [this other seed](https://github.com/auth0/auth0-jquery/tree/gh-pages/examples/widget-with-thirdparty-api).
+    if (d === 0 || d === 6) {
+      return callback(new UnauthorizedError('This app is available during the week'));
+    }
+  }
+
+  callback(null, user, context);
+}
+''
+
+
+You will also need to update the auth0-variables.js variables for this to work. 
 
 ## Running the example
 
