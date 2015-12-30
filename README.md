@@ -21,9 +21,9 @@ function (user, context, callback) {
 
 You will also need to update the auth0-variables.js variables for this to work. 
 
-## Running the example
+## Running the application
 
-In order to run the example you need to just start a server. What we suggest is doing the following:
+In order to run the application you need to just start a server. What we suggest is doing the following:
 
 1. Install node
 2. run `npm install -g serve`
