@@ -18,8 +18,7 @@ function (user, context, callback) {
 }
 ```
 
-
-You will also need to update the auth0-variables.js variables for this to work. 
+You will also need to create an application (https://auth0.com/video-tutorials/creating-your-first-app/register-an-application) and update the auth0-variables.js variables with the application info.
 
 ## Running the application
 
