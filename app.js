@@ -36,10 +36,8 @@ $(document).ready(function() {
 //Here we add the authorization header with the token so the api calls are authorized
     $.ajaxSetup({
       'beforeSend': function(xhr) {
-        if (localStorage.getItem('userToken')) {
           xhr.setRequestHeader('Authorization',
                 'Bearer ' + rulesToken);
-        }
       }
     });
 	
